@@ -5,13 +5,13 @@
 // (set by cognito-auth.js) and call a REST endpoint via jQuery $.ajax
 // instead of the aws-amplify Data/Storage client.
 
-var WildRydes = window.WildRydes || {};
+var Cluster = window.Cluster || {};
 
 // ─── Auth gate ────────────────────────────────────────────────────────────────
 // Redirect to sign-in if there's no valid session, same as ride.js does
 // before it lets you request a ride.
 var authToken;
-WildRydes.authToken.then(function setAuthToken(token) {
+Cluster.authToken.then(function setAuthToken(token) {
     if (token) {
         authToken = token;
     } else {
@@ -97,7 +97,7 @@ function showToast(msg) {
 
 // ─── Sign out (added to match the template's "Account" menu concept) ─────────
 function signOutAndRedirect() {
-  WildRydes.signOut();
+  Cluster.signOut();
   window.location.href = 'signin.html';
 }
 
