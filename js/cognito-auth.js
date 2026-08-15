@@ -6,7 +6,7 @@
 // Rydes'. Kept the WildRydes namespace/global for drop-in compatibility with
 // the rest of the template's script structure.
 
-var WildRydes = window.WildRydes || {};
+var Cluster = window.Cluster || {};
 
 (function scopeWrapper($) {
     var signinUrl = 'signin.html';
@@ -31,11 +31,11 @@ var WildRydes = window.WildRydes || {};
         AWSCognito.config.region = _config.cognito.region;
     }
 
-    WildRydes.signOut = function signOut() {
+    Cluster.signOut = function signOut() {
         userPool.getCurrentUser().signOut();
     };
 
-    WildRydes.authToken = new Promise(function fetchCurrentAuthToken(resolve, reject) {
+    Cluster.authToken = new Promise(function fetchCurrentAuthToken(resolve, reject) {
         var cognitoUser = userPool.getCurrentUser();
 
         if (cognitoUser) {
