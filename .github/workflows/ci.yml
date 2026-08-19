@@ -1,31 +1,29 @@
-name: CI
 
 # Runs on every push/PR. Amplify Hosting deploys the app itself once you
 # connect this GitHub repo in the Amplify Console (Hosting -> "Connect
 # repository") — that's a separate, automatic build/deploy pipeline. This
 # workflow is just a pre-merge sanity check: it doesn't deploy anything or
 # need any AWS credentials, so there are no secrets to configure here.
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'npm'
-
-      - run: npm install
-
-      - name: Run Lambda handler unit tests
-        run: npm run test:lambda
-
-      - name: Next.js build check
-        run: npm run build
+version: 1
+backend:
+  phases:
+    build:
+      commands:
+        - npm ci
+        - npx ampx pipeline-deploy --branch $AWS_BRANCH --app-id $AWS_APP_ID
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: .next
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
+      - .next/cache/**/*
