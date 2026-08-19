@@ -22,7 +22,7 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - run: npm ci
+      - run: npm install
 
       - name: Run Lambda handler unit tests
         run: npm run test:lambda
