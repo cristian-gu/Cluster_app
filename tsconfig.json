@@ -8,5 +8,11 @@
     "strict": true,
     "skipLibCheck": true,
     "isolatedModules": true
-  }
+  },
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
