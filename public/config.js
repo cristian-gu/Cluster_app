@@ -27,5 +27,5 @@ window.APP_CONFIG = {
   // Base URL of the save-profile API (Next.js on Amplify Hosting, or
   // API Gateway in front of the Lambda in /lambda). Matches API_BASE_URL
   // in app.js — keep both in sync.
-  apiBaseUrl: 'https://your-deployed-app-domain',
+  apiBaseUrl: 'https://main.d10aam5g1tfkqh.amplifyapp.com',
 };
