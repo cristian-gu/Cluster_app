@@ -19,10 +19,10 @@ window.APP_CONFIG = {
   region: 'us-west-1',
 
   // Cognito User Pool ID, e.g. 'us-west-1_AbCdEfGhI'
-  userPoolId: 'REPLACE_WITH_USER_POOL_ID',
+  userPoolId: 'us-west-1_9JyaVN2bh',
 
   // Cognito App Client ID (no secret), e.g. '1h5p3q...'
-  userPoolClientId: 'REPLACE_WITH_USER_POOL_CLIENT_ID',
+  userPoolClientId: '1755e0ikj26gudpt4l1v10ag7k',
 
   // Base URL of the save-profile API (Next.js on Amplify Hosting, or
   // API Gateway in front of the Lambda in /lambda). Matches API_BASE_URL
